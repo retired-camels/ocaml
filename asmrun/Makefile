@@ -89,6 +89,12 @@ power.o: power-$(SYSTEM).o
 power.p.o: power-$(SYSTEM).o
 	cp power-$(SYSTEM).o power.p.o
 
+power64.o: power64-$(SYSTEM).o
+	cp power64-$(SYSTEM).o power64.o
+
+power64.p.o: power64-$(SYSTEM).o
+	cp power64-$(SYSTEM).o power64.p.o
+
 main.c: ../byterun/main.c
 	ln -s ../byterun/main.c main.c
 misc.c: ../byterun/misc.c

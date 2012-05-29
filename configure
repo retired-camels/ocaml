@@ -685,6 +685,7 @@ case "$host" in
                                   arch=i386; system=macosx
                                 fi;;
   i[3456]86-*-gnu*)             arch=i386; system=gnu;;
+  powerpc64-*-linux*)           arch=power64; model=ppc64; system=elf;;
   powerpc*-*-linux*)            arch=power; model=ppc; system=elf;;
   powerpc-*-netbsd*)            arch=power; model=ppc; system=elf;;
   powerpc-*-rhapsody*)          arch=power; model=ppc; system=rhapsody;;
@@ -756,6 +757,8 @@ case "$arch,$model,$system" in
                     aspp='gcc -c';;
   power,*,elf)      as='as -u -m ppc'
                     aspp='gcc -c';;
+  power64,*,elf)    as='as -u -m ppc64'
+                   aspp='gcc -c';;
   power,*,bsd)      as='as'
                     aspp='gcc -c';;
   power,*,rhapsody) as="as -arch $model"
