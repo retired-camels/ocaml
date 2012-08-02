@@ -2,6 +2,7 @@
 *.cmo
 *.cmi
 *.cmx
+*.cmxs
 *.cma
 *.cmxa
 *.a
@@ -11,6 +12,7 @@ _build
 *.pic.c
 *.opt
 *.bak
+cscope.out
 asmcomp/arch.ml
 asmcomp/emit.ml
 asmcomp/proc.ml
