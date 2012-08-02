@@ -382,7 +382,15 @@ flag ["ocaml"; "compile"] begin
   atomize !Options.ocaml_cflags
 end;;
 
+flag ["c"; "compile"] begin
+  atomize !Options.ocaml_cflags
+end;;
+
 flag ["ocaml"; "link"] begin
+  atomize !Options.ocaml_lflags
+end;;
+
+flag ["c"; "link"] begin
   atomize !Options.ocaml_lflags
 end;;
 
