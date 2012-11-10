@@ -109,8 +109,7 @@ defaultentry:
 	@echo "Please refer to the installation instructions in file INSTALL."
 	@echo "If you've just unpacked the distribution, something like"
 	@echo "	./configure"
-	@echo "	make world"
-	@echo "	make opt"
+	@echo "	make world.opt"
 	@echo "	make install"
 	@echo "should work.  But see the file INSTALL for more details."
 
@@ -127,7 +126,6 @@ world:
 world.opt:
 	$(MAKE) coldstart
 	$(MAKE) opt.opt
-	$(MAKE) ocamltoolsopt
 
 # Hard bootstrap how-to:
 # (only necessary in some cases, for example if you remove some primitive)
@@ -252,8 +250,9 @@ opt:
 # Native-code versions of the tools
 opt.opt: checkstack runtime core ocaml opt-core ocamlc.opt otherlibraries \
 	 $(DEBUGGER) ocamldoc ocamlbuild.byte $(CAMLP4OUT) \
-	 ocamlopt.opt otherlibrariesopt ocamllex.opt ocamltoolsopt.opt \
-	 ocamldoc.opt ocamlbuild.native $(CAMLP4OPT)
+	 ocamlopt.opt otherlibrariesopt ocamllex.opt \
+	 ocamltoolsopt ocamltoolsopt.opt ocamldoc.opt ocamlbuild.native \
+	 $(CAMLP4OPT)
 
 base.opt: checkstack runtime core ocaml opt-core ocamlc.opt otherlibraries \
 	 ocamlbuild.byte $(CAMLP4OUT) $(DEBUGGER) ocamldoc ocamlopt.opt \
@@ -801,7 +800,7 @@ distclean:
 .PHONY: partialclean beforedepend alldepend cleanboot coldstart
 .PHONY: compare core coreall
 .PHONY: coreboot defaultentry depend distclean install installopt
-.PHONY: library library-cross libraryopt ocamlbuild-mixed-boot
+.PHONY: library library-cross libraryopt
 .PHONY: ocamlbuild.byte ocamlbuild.native ocamldebugger ocamldoc
 .PHONY: ocamldoc.opt ocamllex ocamllex.opt ocamltools ocamltoolsopt
 .PHONY: ocamltoolsopt.opt ocamlyacc opt-core opt opt.opt otherlibraries
